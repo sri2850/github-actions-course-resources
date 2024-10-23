@@ -32,6 +32,10 @@ jobs:
       run: |
        cd ${{ github.workspace }}/Code/Basics02/PracticeProject
        npm run build
+    - name: lint the project
+      run: |
+       cd ${{ github.workspace }}/Code/Basics02/PracticeProject
+       npm run lint
     - name: deploy
       run: echo deploying
     

@@ -10,5 +10,5 @@ jobs:
       - name: output github context
         run: |
          json='${{ toJSON(github.event.issue) }}'
-         echo $json
+         echo $json | jq .
     

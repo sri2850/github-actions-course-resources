@@ -1,7 +1,7 @@
 name: on Events
 on: 
   # push:
-  #   branches: main
+  #   branches: mai
   pull_request:
     types: [opened, edited]
     branches: main 

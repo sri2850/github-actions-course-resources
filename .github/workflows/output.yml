@@ -9,5 +9,6 @@ jobs:
     steps:
       - name: output github context
         run: |
-         echo "${{ toJSON github.event.issue }}"
+         json='${{ toJSON(github.event.issue) }}'
+         echo $json
     

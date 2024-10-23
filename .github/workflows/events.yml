@@ -9,7 +9,6 @@ on:
   pull_request:
     types: [opened, edited]
     branches: main
-    branches-ignore: [dev, develop-*]
   workflow_dispatch:
 jobs:
   Deploy:

@@ -1,11 +1,21 @@
 name: on Events
-on: push
+on: 
+  # push:
+  #   branches: main
+  pull_request:
+    types: [opened, edited]
+    branches: main 
+  workflow_dispatch:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4.2.1
+    - name: output event
+      run: |
+       eventJson='${{ toJSON(github.event) }}'
+       echo $eventJson
     - name: Install Node JS
       uses: actions/setup-node@v3
       with:

@@ -1,7 +1,9 @@
 name: on Events
 on: 
   push:
-    branches: [main, develop]
+    branches: 
+    - main 
+    - develop
     paths-ignore: 
     - .github/workflows/*
   pull_request:

@@ -11,9 +11,9 @@ jobs:
       with:
         node-version: 20
     - name: Install dependencies
-      run: npm install ${{ github.workspace }}/Code/02 Basics/05 Practice Project (Finished)
+      run: npm install ${{ github.workspace }}/Code/Basics/PracticeProject
     - name: Run tests
-      run: npm run test ${{ github.workspace }}/Code/02 Basics/05 Practice Project (Finished)
+      run: npm run test ${{ github.workspace }}/Code/Basics/PracticeProject
   Deploy:
     runs-on: ubuntu-latest
     steps:
@@ -24,9 +24,9 @@ jobs:
       with:
         node-version: 20
     - name: Install dependencies
-      run: npm install ${{ github.workspace }}/Code/02 Basics/05 Practice Project (Finished)
+      run: npm install ${{ github.workspace }}/Code/Basics/PracticeProject
     - name: build the project
-      run: npm run build ${{ github.workspace }}/Code/02 Basics/05 Practice Project (Finished)
+      run: npm run build ${{ github.workspace }}/Code/Basics/PracticeProject
     - name: deploy
       run: echo deploying
     

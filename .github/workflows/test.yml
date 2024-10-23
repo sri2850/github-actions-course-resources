@@ -15,7 +15,6 @@ jobs:
     - name: Run tests
       run: |
        cd ${{ github.workspace }}/Code/Basics02/PracticeProject
-       npm run
        npm run test
   Deploy:
     needs: test
@@ -30,7 +29,9 @@ jobs:
     - name: Install dependencies
       run: npm install ${{ github.workspace }}/Code/Basics02/PracticeProject
     - name: build the project
-      run: npm run build ${{ github.workspace }}/Code/Basics02/PracticeProject
+      run: |
+       cd ${{ github.workspace }}/Code/Basics02/PracticeProject
+       npm run build
     - name: deploy
       run: echo deploying
     

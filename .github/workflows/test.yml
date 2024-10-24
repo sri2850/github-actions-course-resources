@@ -27,7 +27,7 @@ jobs:
 
     - name: publish JS file name
       id: publish
-      run: find ${{ github.workspace }}/Code/Basics02/PracticeProject/dist/assets/*.js -type -f -execdir 'script-file={}' >> $GITHUB_OUTPUT ';'
+      run: find ${{ github.workspace }}/Code/Basics02/PracticeProject/dist/assets/*.js -type f -execdir 'script-file={}' >> $GITHUB_OUTPUT ';'
     - name: publish artifact
       uses: actions/upload-artifact@v4.4.3
       with:

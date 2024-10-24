@@ -22,10 +22,11 @@ jobs:
       run: |
        cd ${{ github.workspace }}/Code/Basics02/PracticeProject
        npm run build
+       ls
 
-    - name: publish JS file name
-      id: publish
-      run: find dist/assets/*.js -type -f -execdir 'script-file={}' >> $GITHUB_OUTPUT ';'
+    # - name: publish JS file name
+    #   id: publish
+    #   run: find dist/assets/*.js -type -f -execdir 'script-file={}' >> $GITHUB_OUTPUT ';'
     - name: publish artifact
       uses: actions/upload-artifact@v4.4.3
       with:

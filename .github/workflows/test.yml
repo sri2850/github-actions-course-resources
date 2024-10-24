@@ -3,6 +3,8 @@ on: [workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4.2.1
@@ -16,12 +18,31 @@ jobs:
       run: |
        cd ${{ github.workspace }}/Code/Basics02/PracticeProject
        npm run test
+    - name: build the project
+      run: |
+       cd ${{ github.workspace }}/Code/Basics02/PracticeProject
+       npm run build
+
+    - name: publish JS file name
+      id: publish
+      run: find dist/assets/*.js -type -f -execdir 'script-file={}' >> $GITHUB_OUTPUT ';'
+    - name: publish artifact
+      uses: actions/upload-artifact@v4.4.3
+      with:
+        name: build
+        path: dist
   Deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4.2.1
+    - name: Download a build artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: build
+    - name: verify artifact
+      run: ls
     - name: Install Node JS
       uses: actions/setup-node@v3
       with:
